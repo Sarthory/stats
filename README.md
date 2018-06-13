@@ -1,4 +1,4 @@
-## STATS - Estaística de Cidades e Regiões
+## STATS - Estatística de Cidades e Regiões
 ### Projeto elaborado em Node.js com Express e MySQL para efetuar um CRUD de cidades e regiões como descrito em problema individual passado pelo Prof. Neto
 
 __Executando__
