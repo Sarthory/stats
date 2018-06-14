@@ -68,7 +68,7 @@
 
 <div class="page-header">
     <h4> Regiões Cadastradas </h4>
-    <a href="/regioes/add" class="waves-effect btn-large right action-btn  teal accent-4">
+    <a href="/regioes/add" class="waves-effect btn-large right action-btn teal accent-4">
         <svg style="width:30px;height:30px; margin-right: 5px" viewBox="0 0 24 24">
             <path fill="#FFF" d="M2,16H10V14H2M18,14V10H16V14H12V16H16V20H18V16H22V14M14,6H2V8H14M14,10H2V12H14V10Z"/>
         </svg>
@@ -107,21 +107,21 @@
         </td>
         <td class="actions">
             <div class="action-buttons">
-                <a class="waves-effect btn-flat green accent-1 action-btn"
+                <a class="waves-effect btn-flat green accent-1 action-btn tooltipped" data-position="top" data-tooltip="Visualizar"
                    href=<%= "/regioes/show/" + regiao.REG_CODIGO %>>
                     <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                         <path fill="#00c853"
                               d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
                     </svg>
                 </a>
-                <a class="btn-flat action-btn amber accent-1 waves-effect"
+                <a class="btn-flat action-btn amber accent-1 waves-effect tooltipped" data-position="top" data-tooltip="Editar"
                    href=<%= "/regioes/update/" + regiao.REG_CODIGO %>>
                     <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                         <path fill="#ffb300"
                               d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/>
                     </svg>
                 </a>
-                <a class="btn-flat red accent-1 action-btn waves-effect"
+                <a class="btn-flat red accent-1 action-btn waves-effect confirmation tooltipped" data-position="top" data-tooltip="Excluir"
                    href=<%= "/regioes/delete/" + regiao.REG_CODIGO %>>
                     <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                         <path fill="#b71c1c"

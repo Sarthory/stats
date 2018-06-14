@@ -2,6 +2,10 @@ h3, h4 {
     color: #ab47bc;
 }
 
+.index-page{
+    overflow: hidden;
+}
+
 .index-section {
     display: flex;
     align-items: center;

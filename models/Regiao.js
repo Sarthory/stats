@@ -36,7 +36,7 @@ function alterar(dados, callback) {
     const statement = `UPDATE ${table} SET 
                         REG_DESCRICAO = '${dados.reg_descricao}', 
                         REG_SIGLA = '${dados.reg_sigla}',
-                        REG_AREA_KM2 = ${dados.reg_area},
+                        REG_AREA_KM2 = ${dados.reg_area_km2},
                         REG_VALOR_PIB = ${dados.reg_valor_pib}
                         WHERE REG_CODIGO = ${dados.reg_codigo}`;
 
