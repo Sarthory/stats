@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="/img/favicon.ico"/>
 
-    <title>STATS - Regiões | Detalhes</title>
+    <title>STATS - Cidades | Editar</title>
 
     <link type="text/css" rel="stylesheet" href="/css/materialize.min.css" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="/css/styles.css"/>
@@ -70,8 +70,8 @@
 <!-- Menu -->
 
 <div class="page-header">
-    <h4>Detalhes da Região: <%= regiao[0].REG_DESCRICAO %></h4>
-    <a href="/regioes" class="waves-effect btn-large right action-btn  teal accent-4">
+    <h4>Editar Cidade: <%= cidade[0].CID_DESCRICAO %></h4>
+    <a href="/cidades" class="waves-effect btn-large right action-btn  teal accent-4">
         <svg style="width:30px;height:30px; margin-right: 5px" viewBox="0 0 24 24">
             <path fill="#FFF"
                   d="M5,13L9,17L7.6,18.42L1.18,12L7.6,5.58L9,7L5,11H21V13H5M21,6V8H11V6H21M21,16V18H11V16H21Z"/>
@@ -82,40 +82,60 @@
 <hr>
 <br><br>
 <div class="row">
-    <form class="col s12">
+    <form class="col s12" method="post" action="/cidades/update/save">
+
+        <input type="hidden" name="cid_codigo" value="<%= cidade[0].CID_CODIGO %>">
 
         <div class="row">
             <div class="col s2"></div>
-            <div class="input-field col s6">
-                <input disabled id="reg_descricao" name="reg_descricao" type="text" class="validate"
-                       value="<%= regiao[0].REG_DESCRICAO %>">
-                <label for="reg_descricao">Descrição</label>
+            <div class="input-field col s4">
+                <input required id="cid_descricao" name="cid_descricao" type="text" class="validate"
+                       value="<%= cidade[0].CID_DESCRICAO %>">
+                <label for="cid_descricao">Descrição</label>
             </div>
-            <div class="input-field col s2">
-                <input disabled id="reg_sigla" name="reg_sigla" type="text" class="validate"
-                       value="<%= regiao[0].REG_SIGLA %>">
-                <label for="reg_sigla">Sigla</label>
+            <div class="input-field col s1">
+                <input required id="cid_estado" name="cid_estado" type="text" class="validate"
+                       value="<%= cidade[0].CID_ESTADO %>">
+                <label for="cid_estado">Estado</label>
+            </div>
+            <div class="input-field col s3">
+                <input required id="cid_habitantes" name="cid_habitantes" type="number" class="validate"
+                       value="<%= cidade[0].CID_HABITANTES %>">
+                <label for="cid_habitantes">Qtd. Habitantes</label>
             </div>
             <div class="col s2"></div>
         </div>
 
         <div class="row">
             <div class="col s2"></div>
-            <div class="input-field col s4">
-                <input disabled id="reg_area_km2" name="reg_area_km2" type="number" class="validate"
-                       value="<%= regiao[0].REG_AREA_KM2 %>">
-                <label for="reg_area_km2">Área em KM²</label>
+            <div class="input-field col s2">
+                <input required id="cid_ano_fundacao" name="cid_ano_fundacao" type="number" class="validate"
+                       value="<%= cidade[0].CID_ANO_FUNDACAO %>">
+                <label for="cid_ano_fundacao">Ano de Fundação</label>
             </div>
-            <div class="input-field col s4">
-                <input disabled id="reg_valor_pib" name="reg_valor_pib" type="number" class="validate"
-                       value="<%= regiao[0].REG_VALOR_PIB %>">
-                <label for="reg_valor_pib">Valor PIB R$</label>
+
+            <div class="input-field col s3">
+                <input required id="cid_economica" name="cid_economica" type="text" class="validate"
+                       value="<%= cidade[0].CID_ECONOMICA %>">
+                <label for="cid_economica">Força econômica</label>
+            </div>
+
+            <div class="input-field col s3">
+
+                <select required id="reg_cod" name="reg_cod" type="number" class="validate">
+                    <option value="<%= cidade[0].REG_COD %>" selected><%= cidade[0].REG_DESCRICAO %></option>
+                    <% for (regiao of regioes){ %>
+                    <option value="<%= regiao.REG_CODIGO %>"><%= regiao.REG_DESCRICAO %></option>
+                    <% } %>
+                </select>
+                <label for="reg_cod">Região</label>
+
             </div>
             <div class="col s2"></div>
         </div>
 
         <div class="form-actions">
-            <button disabled class="btn waves-effect btn-large action-btn green accent-3">
+            <button class="btn waves-effect btn-large action-btn green accent-3">
                 <svg style="width:25px;height:25px; margin-right: 10px" viewBox="0 0 24 24">
                     <path fill="#FFF"
                           d="M17,7V3H7V7H17M14,17A3,3 0 0,0 17,14A3,3 0 0,0 14,11A3,3 0 0,0 11,14A3,3 0 0,0 14,17M19,1L23,5V17A2,2 0 0,1 21,19H7C5.89,19 5,18.1 5,17V3A2,2 0 0,1 7,1H19M1,7H3V21H17V23H3A2,2 0 0,1 1,21V7Z"/>

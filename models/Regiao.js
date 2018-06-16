@@ -2,36 +2,36 @@ const db = require('../config/dbconnection');
 const table = 'REGIAO';
 
 module.exports = {
-    listar,
-    listarUma,
-    inserir,
-    remover,
-    alterar
+    listarReg,
+    listarUmaReg,
+    inserirReg,
+    removerReg,
+    alterarReg
 };
 
-function listar(callback) {
+function listarReg(callback) {
     db.query(`SELECT * FROM ${table}`, callback);
 }
 
-function listarUma(id, callback) {
+function listarUmaReg(id, callback) {
     db.query(`SELECT * FROM ${table} WHERE REG_CODIGO = ${id}`, callback);
 }
 
-function inserir(data, callback) {
+function inserirReg(data, callback) {
 
     const statement = `INSERT INTO ${table} SET ?`;
 
     db.query(statement, data, callback);
 }
 
-function remover(id, callback) {
+function removerReg(id, callback) {
 
     const statement = `DELETE FROM ${table} WHERE REG_CODIGO = ${id}`;
 
     db.query(statement, callback);
 }
 
-function alterar(dados, callback) {
+function alterarReg(dados, callback) {
 
     const statement = `UPDATE ${table} SET 
                         REG_DESCRICAO = '${dados.reg_descricao}', 

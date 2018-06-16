@@ -1,11 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu
-    let elems = document.querySelectorAll('.sidenav');
-    let instances = M.Sidenav.init(elems);
+    let menu = document.querySelectorAll('.sidenav');
+    let instances = M.Sidenav.init(menu);
 
     // Tooltips
     let tips = document.querySelectorAll('.tooltipped');
     let tool_tips = M.Tooltip.init(tips, {enterDelay: 800});
+
+    // Selects
+    let select = document.querySelectorAll('select');
+    let selects = M.FormSelect.init(select);
 
     // Confirm before delete
     let el = document.getElementsByClassName('confirmation');

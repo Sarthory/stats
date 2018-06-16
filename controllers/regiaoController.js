@@ -1,8 +1,8 @@
-model = require('../models/Regiao.js');
+const model = require('../models/Regiao.js');
 
 module.exports.listaRegioes = (req, res) => {
 
-    model.listar((err, results) => {
+    model.listarReg((err, results) => {
 
         if (err) {
             throw err;
@@ -16,7 +16,7 @@ module.exports.mostraRegiao = (req, res) => {
 
     let id = req.params.codigo;
 
-    model.listarUma(id, (err, result) => {
+    model.listarUmaReg(id, (err, result) => {
 
         if (err) {
             throw err;
@@ -30,7 +30,7 @@ module.exports.alterarRegiaoForm = (req, res) => {
 
     let id = req.params.codigo;
 
-    model.listarUma(id, (err, result) => {
+    model.listarUmaReg(id, (err, result) => {
 
         if (err) {
             throw err;
@@ -44,7 +44,7 @@ module.exports.alterarRegiao = (req, res) => {
 
     let data = req.body;
 
-    model.alterar(data, (err) => {
+    model.alterarReg(data, (err) => {
 
         if (err) {
             throw err;
@@ -56,7 +56,7 @@ module.exports.alterarRegiao = (req, res) => {
 
 module.exports.regiaoForm = (req, res) => {
 
-    model.listar((err, results) => {
+    model.listarReg((err, results) => {
 
         if (err) {
             throw err;
@@ -70,7 +70,7 @@ module.exports.inserirRegiao = (req, res) => {
 
     let data = req.body;
 
-    model.inserir(data, (err) => {
+    model.inserirReg(data, (err) => {
 
         if (err) {
             throw err;
@@ -84,7 +84,7 @@ module.exports.removeRegiao = (req, res) => {
 
     let id = req.params.codigo;
 
-    model.remover(id, (err) => {
+    model.removerReg(id, (err) => {
 
         if (err) {
             throw err;

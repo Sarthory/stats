@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="/img/favicon.ico"/>
+    <link rel="shortcut icon" href="img/favicon.ico"/>
 
-    <title>STATS - Regiões | Detalhes</title>
+    <title>STATS - Cidades</title>
 
     <link type="text/css" rel="stylesheet" href="/css/materialize.min.css" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="/css/styles.css"/>
@@ -47,7 +47,7 @@
                         Regiões
                     </a>
                 </li>
-                <li class="waves-effect">
+                <li class="active waves-effect">
                     <a href="/cidades"
                        style="display: flex; align-items: center; justify-content: center">
                         <svg style="width:24px;height:24px; margin-right: 5px" viewBox="0 0 24 24">
@@ -70,63 +70,87 @@
 <!-- Menu -->
 
 <div class="page-header">
-    <h4>Detalhes da Região: <%= regiao[0].REG_DESCRICAO %></h4>
-    <a href="/regioes" class="waves-effect btn-large right action-btn  teal accent-4">
+    <h4>Cidades Cadastradas</h4>
+    <a href="/cidades/add" class="waves-effect btn-large right action-btn teal accent-4">
         <svg style="width:30px;height:30px; margin-right: 5px" viewBox="0 0 24 24">
-            <path fill="#FFF"
-                  d="M5,13L9,17L7.6,18.42L1.18,12L7.6,5.58L9,7L5,11H21V13H5M21,6V8H11V6H21M21,16V18H11V16H21Z"/>
+            <path fill="#FFF" d="M2,16H10V14H2M18,14V10H16V14H12V16H16V20H18V16H22V14M14,6H2V8H14M14,10H2V12H14V10Z"/>
         </svg>
-        VOLTAR
+        CADASTRAR
     </a>
 </div>
 <hr>
-<br><br>
-<div class="row">
-    <form class="col s12">
-
-        <div class="row">
-            <div class="col s2"></div>
-            <div class="input-field col s6">
-                <input disabled id="reg_descricao" name="reg_descricao" type="text" class="validate"
-                       value="<%= regiao[0].REG_DESCRICAO %>">
-                <label for="reg_descricao">Descrição</label>
+<table class="table striped centered">
+    <thead>
+    <tr>
+        <th>Codigo</th>
+        <th>Descrição</th>
+        <th>Estado</th>
+        <th>Habitantes</th>
+        <th>Força econômica</th>
+        <th>Ano de fundação</th>
+        <th>Região</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for (cidade of cidades){ %>
+    <tr>
+        <td>
+            <%= cidade.CID_CODIGO %>
+        </td>
+        <td>
+            <%= cidade.CID_DESCRICAO %>
+        </td>
+        <td>
+            <%= cidade.CID_ESTADO %>
+        </td>
+        <td>
+            <%= cidade.CID_HABITANTES %>
+        </td>
+        <td>
+            <%= cidade.CID_ECONOMICA %>
+        </td>
+        <td>
+            <%= cidade.CID_ANO_FUNDACAO %>
+        </td>
+        <td>
+            <%= cidade.REG_DESCRICAO %>
+        </td>
+        <td class="actions">
+            <div class="action-buttons">
+                <a class="waves-effect btn-flat green lighten-5 action-btn tooltipped" data-position="top"
+                   data-tooltip="Visualizar"
+                   href=<%= "/cidades/show/" + cidade.CID_CODIGO %>>
+                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                        <path fill="#00c853"
+                              d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+                    </svg>
+                </a>
+                <a class="btn-flat action-btn amber lighten-5 waves-effect tooltipped" data-position="top"
+                   data-tooltip="Editar"
+                   href=<%= "/cidades/update/" + cidade.CID_CODIGO %>>
+                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                        <path fill="#ffb300"
+                              d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/>
+                    </svg>
+                </a>
+                <a class="btn-flat red lighten-5 action-btn waves-effect confirmation tooltipped" data-position="top"
+                   data-tooltip="Excluir"
+                   href=<%= "/cidades/delete/" + cidade.CID_CODIGO %>>
+                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                        <path fill="#d50000"
+                              d="M2,6V8H14V6H2M2,10V12H11V10H2M14.17,10.76L12.76,12.17L15.59,15L12.76,17.83L14.17,19.24L17,16.41L19.83,19.24L21.24,17.83L18.41,15L21.24,12.17L19.83,10.76L17,13.59L14.17,10.76M2,14V16H11V14H2Z"/>
+                    </svg>
+                </a>
             </div>
-            <div class="input-field col s2">
-                <input disabled id="reg_sigla" name="reg_sigla" type="text" class="validate"
-                       value="<%= regiao[0].REG_SIGLA %>">
-                <label for="reg_sigla">Sigla</label>
-            </div>
-            <div class="col s2"></div>
-        </div>
+        </td>
+    </tr>
+    <% } %>
+    </tbody>
+</table>
 
-        <div class="row">
-            <div class="col s2"></div>
-            <div class="input-field col s4">
-                <input disabled id="reg_area_km2" name="reg_area_km2" type="number" class="validate"
-                       value="<%= regiao[0].REG_AREA_KM2 %>">
-                <label for="reg_area_km2">Área em KM²</label>
-            </div>
-            <div class="input-field col s4">
-                <input disabled id="reg_valor_pib" name="reg_valor_pib" type="number" class="validate"
-                       value="<%= regiao[0].REG_VALOR_PIB %>">
-                <label for="reg_valor_pib">Valor PIB R$</label>
-            </div>
-            <div class="col s2"></div>
-        </div>
-
-        <div class="form-actions">
-            <button disabled class="btn waves-effect btn-large action-btn green accent-3">
-                <svg style="width:25px;height:25px; margin-right: 10px" viewBox="0 0 24 24">
-                    <path fill="#FFF"
-                          d="M17,7V3H7V7H17M14,17A3,3 0 0,0 17,14A3,3 0 0,0 14,11A3,3 0 0,0 11,14A3,3 0 0,0 14,17M19,1L23,5V17A2,2 0 0,1 21,19H7C5.89,19 5,18.1 5,17V3A2,2 0 0,1 7,1H19M1,7H3V21H17V23H3A2,2 0 0,1 1,21V7Z"/>
-                </svg>
-                SALVAR
-            </button>
-        </div>
-    </form>
-</div>
-
-<script type="text/javascript" src="/js/materialize.min.js"></script>
-<script type="text/javascript" src="/js/scripts.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
 </body>
+
 </html>

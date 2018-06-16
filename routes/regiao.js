@@ -1,4 +1,4 @@
-controller = require('../controllers/regiaoController');
+const controller = require('../controllers/regiaoController');
 
 app.get('/regioes', controller.listaRegioes);
 

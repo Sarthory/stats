@@ -11,8 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node app.js",
-    "demon": "nodemon app.js"
+    "start": "node app.js"
   },
   "author": "Felipe Sarthory <ff.sartori@gmail.com>",
   "license": "MIT"
